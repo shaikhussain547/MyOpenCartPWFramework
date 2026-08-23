@@ -1,12 +1,14 @@
 import {test as baseTest} from '@playwright/test';
 import { LoginPage } from '../pages/LoginPage';
 import { HomePage } from '../pages/HomePage';
+import { CsvHelper } from '../utils/CsvHelper';
 
 
 //define types for page fixtures:
 type pageFixtures = {
     loginPage : LoginPage,
     homePage : HomePage,
+    testData : Record<string,string>[],
 }
 
 //extend playwright base test:
@@ -21,6 +23,11 @@ export let test = baseTest.extend<pageFixtures>({
         let homePage = new HomePage(page);
         await use(homePage);
     },
+
+    testData: async({}, use) => {
+        let testData = CsvHelper.readCsv('src/data/loginData.csv')
+        await use(testData);
+    }
 
 });
 

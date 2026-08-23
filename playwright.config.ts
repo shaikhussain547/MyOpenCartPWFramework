@@ -1,5 +1,12 @@
 import { defineConfig, devices } from '@playwright/test';
 
+import dotenv from 'dotenv';
+
+//ENV=qa npx playwright test
+const ENV = process.env.ENV || "qa";
+console.log('Running tests on Environment: ', ENV);
+dotenv.config({ path: `config/.env.${ENV}` });
+
 export default defineConfig({
 
   testDir: './tests',
@@ -21,7 +28,7 @@ export default defineConfig({
   ],
   /* Shared settings for all the projects below. See https://playwright.dev/docs/api/class-testoptions. */
   use: {
-    baseURL: 'https://naveenautomationlabs.com/',
+    baseURL: process.env.BASE_URL,
     screenshot : 'only-on-failure',
     video : 'retain-on-failure',
     trace: 'on-first-retry',
