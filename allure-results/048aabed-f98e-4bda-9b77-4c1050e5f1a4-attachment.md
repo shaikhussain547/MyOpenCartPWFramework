@@ -6,8 +6,8 @@
 
 # Test info
 
-- Name: loginpagefix.spec.ts >> invalid login test with -  - pw1234
-- Location: tests\loginpagefix.spec.ts:36:5
+- Name: search.spec.ts >> verify user is able to land on the product page -imac - iMac
+- Location: tests\search.spec.ts:18:5
 
 # Error details
 

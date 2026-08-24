@@ -1,5 +1,7 @@
 import {test, expect} from '../src/fixtures/pagefixtures';
 import { CsvHelper } from '../src/utils/CsvHelper';
+import { ExcelHelper } from '../src/utils/ExcelHelper';
+import { JsonHelper } from '../src/utils/JsonHelper';
 
 
 test.beforeEach(async ({loginPage})=>{
@@ -38,3 +40,35 @@ for (let row of testData) {
         expect(await loginPage.invalidLoginErrorDisplayed()).toBeTruthy();
     });
 };
+
+//MS excel - office latest
+//xlsx format
+//maintenance
+let loginTestData = ExcelHelper.readExcel('src/data/OpenCartTestData.xlsx', 'login');
+for (let row of loginTestData) {
+    test(`invalid login test with excel data - ${row.username} - ${row.password}`, async ({ loginPage }) => {
+        await loginPage.doLogin(row.username, row.password);
+        expect(await loginPage.invalidLoginErrorDisplayed()).toBeTruthy();
+    });
+};
+
+let loginJSONData = JsonHelper.readJson("src/data/logindata.json");
+for (let row of loginJSONData) {
+    test(`invalid login test with JSON data - ${row.username}`, async ({ loginPage }) => {
+        await loginPage.doLogin(row.username, row.password);
+        expect(await loginPage.invalidLoginErrorDisplayed()).toBeTruthy();
+    });
+};
+
+//csv vs excel vs json
+
+
+//common tests:
+// test('comp logo exists on product page', async ({ basePage }) => {
+//     expect(await basePage.isLogoVisible()).toBeTruthy();
+// });
+
+// test('footers exist on product page', async ({ basePage }) => {
+//     expect(await basePage.getPageFootersCount()).toBe(16);
+// });
+
