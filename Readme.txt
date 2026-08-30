@@ -6,11 +6,8 @@
 3. You can modify package.json
 4. Create tsconfig.json file
 
-
-
 /*** Allure Reports ***/
 npm install --save-dev allure-playwright allure-commandline
-
 
 --> Add reports commands in config.ts file
 
@@ -42,12 +39,12 @@ npm install dotenv
 
 --> add below code in config.ts file
 
-import dotenv from 'dotenv';   
+  import dotenv from 'dotenv';   
 
-//ENV=qa npx playwright test
-const ENV = process.env.ENV || "qa";
-console.log('Running tests on Environment: ', ENV);
-dotenv.config({ path: `config/.env.${ENV}` });
+  //ENV=qa npx playwright test
+  const ENV = process.env.ENV || "qa";
+  console.log('Running tests on Environment: ', ENV);
+  dotenv.config({ path: `config/.env.${ENV}` });
 
 ENV=qa npx playwright test tests/loginpagefix.spec.ts
 

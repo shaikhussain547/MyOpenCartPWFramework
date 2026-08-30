@@ -1,0 +1,74 @@
+[
+  {
+    id: 8594035,
+    name: 'Bhadrak Nair',
+    email: 'bhadrak_nair@bogisich.example',
+    gender: 'female',
+    status: 'inactive'
+  },
+  {
+    id: 8594034,
+    name: 'Adhiraj Shukla',
+    email: 'adhiraj_shukla@bayer.test',
+    gender: 'male',
+    status: 'active'
+  },
+  {
+    id: 8594033,
+    name: 'Deeptimay Tagore DDS',
+    email: 'tagore_dds_deeptimay@kihn.example',
+    gender: 'male',
+    status: 'active'
+  },
+  {
+    id: 8594029,
+    name: 'Sarala Pandey',
+    email: 'pandey_sarala@kuhic.test',
+    gender: 'female',
+    status: 'active'
+  },
+  {
+    id: 8594028,
+    name: 'Girja Pilla',
+    email: 'pilla_girja@hermiston.example',
+    gender: 'male',
+    status: 'inactive'
+  },
+  {
+    id: 8593905,
+    name: 'uday',
+    email: 'automation_1787792234892@open.com',
+    gender: 'male',
+    status: 'active'
+  },
+  {
+    id: 8593891,
+    name: 'uday',
+    email: 'automation_1787792169005@open.com',
+    gender: 'male',
+    status: 'active'
+  },
+  {
+    id: 8593328,
+    name: 'Brajesh Joshi',
+    email: 'joshi_brajesh@swift.test',
+    gender: 'male',
+    status: 'active'
+  },
+  {
+    id: 8593319,
+    name: 'Vijay Sinha',
+    email: 'vijay_sinha@dach.example',
+    gender: 'male',
+    status: 'active'
+  },
+  {
+    id: 8593318,
+    name: 'Kanishka Kaul',
+    email: 'kaul_kanishka@weimann-hoppe.example',
+    gender: 'female',
+    status: 'inactive'
+  }
+]
+200
+OK
