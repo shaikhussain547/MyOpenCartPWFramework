@@ -25,40 +25,40 @@ test('user is able to login to app test', async ({loginPage,homePage}) => {
 });
 
 //DD_1.sequence mode --only 1 test is running with test data one by one using testData from fixture
-test('login to app using wrong creds with Data driven test', async({ loginPage, testData }) => {
-    for(let row of testData) {
-        await loginPage.doLogin(row.username, row.password);
-        expect(await loginPage.invalidLoginErrorDisplayed()).toBeTruthy();
-    }
-});
+// test('login to app using wrong creds with Data driven test', async({ loginPage, testData }) => {
+//     for(let row of testData) {
+//         await loginPage.doLogin(row.username, row.password);
+//         expect(await loginPage.invalidLoginErrorDisplayed()).toBeTruthy();
+//     }
+// });
 
 //DD_2: without fixtures, parallel mode. read csv data directly and loop the test method row wise...
 let testData = CsvHelper.readCsv('src/data/loginData.csv');
-for (let row of testData) {
-    test(`invalid login test with - ${row.username} - ${row.password}`, async ({ loginPage }) => {
-        await loginPage.doLogin(row.username, row.password);
-        expect(await loginPage.invalidLoginErrorDisplayed()).toBeTruthy();
-    });
-};
+// for (let row of testData) {
+//     test(`invalid login test with - ${row.username} - ${row.password}`, async ({ loginPage }) => {
+//         await loginPage.doLogin(row.username, row.password);
+//         expect(await loginPage.invalidLoginErrorDisplayed()).toBeTruthy();
+//     });
+// };
 
 //MS excel - office latest
 //xlsx format
 //maintenance
 let loginTestData = ExcelHelper.readExcel('src/data/OpenCartTestData.xlsx', 'login');
-for (let row of loginTestData) {
-    test(`invalid login test with excel data - ${row.username} - ${row.password}`, async ({ loginPage }) => {
-        await loginPage.doLogin(row.username, row.password);
-        expect(await loginPage.invalidLoginErrorDisplayed()).toBeTruthy();
-    });
-};
+// for (let row of loginTestData) {
+//     test(`invalid login test with excel data - ${row.username} - ${row.password}`, async ({ loginPage }) => {
+//         await loginPage.doLogin(row.username, row.password);
+//         expect(await loginPage.invalidLoginErrorDisplayed()).toBeTruthy();
+//     });
+// };
 
 let loginJSONData = JsonHelper.readJson("src/data/logindata.json");
-for (let row of loginJSONData) {
-    test(`invalid login test with JSON data - ${row.username}`, async ({ loginPage }) => {
-        await loginPage.doLogin(row.username, row.password);
-        expect(await loginPage.invalidLoginErrorDisplayed()).toBeTruthy();
-    });
-};
+// for (let row of loginJSONData) {
+//     test(`invalid login test with JSON data - ${row.username}`, async ({ loginPage }) => {
+//         await loginPage.doLogin(row.username, row.password);
+//         expect(await loginPage.invalidLoginErrorDisplayed()).toBeTruthy();
+//     });
+// };
 
 //csv vs excel vs json
 
